@@ -17,22 +17,25 @@ Deployment: GitHub Pages / Vercel
 ✨ Glassmorphism Sticky Navigation Bar
 
 # 📌 Sections Included
-Nav Bar
-Hero Section
-About Me
-Skills & Technologies
-Featured Projects
-Development Journey Timeline
-Contact Section
-Footer
+Nav Ba,
+Hero Section,
+About Me,
+Skills & Technologies,
+Featured Projects,
+Development Journey Timeline,
+Contact Section,
+Footer,
 
 # 🌍 Live Demo
 🔗 https://manshi-kumawat.dev
 
 #  📬 Contact
 If you'd like to collaborate or discuss opportunities:
+
 LinkedIn: https://linkedin.com/in/manshi-kumawat
+
 GitHub: https://github.com/Manshikmt3
+
 Email: manshikumawat13@gmail.com
 
 # ⭐ Author

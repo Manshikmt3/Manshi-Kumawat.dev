@@ -29,7 +29,7 @@ Contact Section,
 Footer,
 
 # 🌍 Live Demo
-🔗 https://manshi-kumawat.dev
+🔗[ https://manshi-kumawat.dev](https://manshi-kumawat-dev.vercel.app/)
 
 #  📬 Contact
 If you'd like to collaborate or discuss opportunities:

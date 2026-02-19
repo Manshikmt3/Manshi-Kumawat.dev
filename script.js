@@ -74,8 +74,7 @@ if (skillsSection) {
                     // resetBars();
                 }
             });
-        },
-        { threshold: 0.25 }
+        }, { threshold: 0.25 }
     );
 
     observer.observe(skillsSection);
@@ -140,8 +139,8 @@ const timelineObserver = new IntersectionObserver(
         entries.forEach((entry) => {
             if (entry.isIntersecting) entry.target.classList.add("show");
         });
-    },
-    { threshold: 0.2 }
+    }, { threshold: 0.2 }
 );
 
 timelineItems.forEach((item) => timelineObserver.observe(item));
+document.getElementById("contact-form")

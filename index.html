@@ -599,23 +599,29 @@
 
     <script>
         (function() {
-            emailjs.init("a5KRic7WErthdM4_L"); // dashboard se milega
+            emailjs.init("a5KRic7WErthdM4_L"); // Your PUBLIC KEY
         })();
 
-        document.getElementById("contactForm").addEventListener("submit", function(e) {
+        const contactForm = document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
 
             emailjs.sendForm(
-                "service_u33b6dg",
-                "template_ywlh4gd",
-                this
-            ).then(function() {
-                alert("Message Sent Successfully!");
-            }, function() {
-                alert("Failed to send message");
-            });
+                    "service_u33b6dg",
+                    "template_ywlh4gd",
+                    this
+                )
+                .then(() => {
+                    alert("Message Sent Successfully!");
+                    contactForm.reset();
+                })
+                .catch(() => {
+                    alert("Failed to send message.");
+                });
         });
     </script>
+
 
 </body>
 

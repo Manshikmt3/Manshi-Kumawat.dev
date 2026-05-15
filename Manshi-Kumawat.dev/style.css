@@ -1,0 +1,1285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* PRELOADER */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    background: #060816;
+}
+
+.pre-card {
+    width: min(520px, 92vw);
+    text-align: center;
+    padding: 26px 22px;
+    border-radius: 18px;
+    background: rgba(12, 12, 26, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
+}
+
+.pre-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #eaeaf7;
+    margin-bottom: 18px;
+}
+
+.pre-name {
+    background: linear-gradient(90deg, #b26cff, #6a5cff, #00d4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: preGradient 3.5s linear infinite;
+}
+
+@keyframes preGradient {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+.pre-bar {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    margin: 0 auto 12px;
+}
+
+.pre-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #b26cff, #6a5cff);
+    box-shadow: 0 0 25px rgba(178, 108, 255, 0.25);
+    transition: width 0.50s ease;
+}
+
+.pre-meta {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    align-items: center;
+    color: #a5a5c3;
+    font-size: 0.95rem;
+}
+
+#prePercent {
+    color: #00d4ff;
+    font-weight: 700;
+    min-width: 44px;
+    text-align: right;
+}
+
+.pre-sub {
+    opacity: 0.9;
+}
+
+/* fade out animation */
+.preloader.hide {
+    animation: preFade 0.5s ease forwards;
+}
+
+@keyframes preFade {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body {
+    background: #050510;
+    color: white;
+    min-height: 100vh;
+}
+
+/* Animated background container */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* floating blobs */
+.bg-animation span {
+    position: absolute;
+    display: block;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(178, 108, 255, 0.4), transparent);
+    border-radius: 50%;
+    animation: float 18s linear infinite;
+}
+
+.bg-animation span:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-duration: 20s;
+}
+
+.bg-animation span:nth-child(2) {
+    top: 60%;
+    left: 70%;
+    animation-duration: 25s;
+}
+
+.bg-animation span:nth-child(3) {
+    top: 40%;
+    left: 10%;
+    animation-duration: 22s;
+}
+
+.bg-animation span:nth-child(4) {
+    top: 80%;
+    left: 40%;
+    animation-duration: 28s;
+}
+
+/* floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-80px) scale(1.2);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+/* Fixed glass navbar */
+.navbar {
+    position: fixed;
+    top: 16px;
+    /* thoda down for premium look */
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1100px, calc(100% - 32px));
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 22px;
+    border-radius: 18px;
+
+    background: rgba(12, 12, 26, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    transition: 0.25s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* On scroll: little stronger glass */
+.navbar.scrolled {
+    background: rgba(12, 12, 26, 0.60);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #b26cff;
+}
+
+/* mobile */
+@media (max-width: 700px) {
+    .navbar {
+        padding: 12px 16px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        font-size: 0.95rem;
+    }
+}
+
+
+/* Hero */
+.hero {
+    text-align: center;
+    margin-top: 300px;
+    padding: 0 20px;
+
+}
+
+.hero h1 {
+
+    font-size: 3rem;
+    line-height: 1.3;
+}
+
+/* Gradient Text */
+.gradient {
+    background: linear-gradient(90deg, #b26cff, #6a5cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Paragraph */
+.hero p {
+    max-width: 700px;
+    margin: 25px auto;
+    color: #aaa;
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 28px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 10px;
+}
+
+.primary {
+    background: linear-gradient(90deg, #b26cff, #6a5cff);
+    color: white;
+}
+
+
+.secondary {
+    background: linear-gradient(90deg, #b26cff, #6a5cff);
+    color: white;
+}
+
+
+.primary:hover,
+.secondary:hover {
+    transform: scale(1.05);
+
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+/* Base Button */
+.social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Glow */
+.social-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #b26cff, #6a5cff);
+    opacity: 0;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.social-btn:hover::before {
+    opacity: 1;
+}
+
+.social-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 20px rgba(178, 108, 255, 0.6);
+}
+
+/* Brand Accent (optional subtle color) */
+.whatsapp:hover {
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+}
+
+.linkedin:hover {
+    box-shadow: 0 0 20px rgba(10, 102, 194, 0.6);
+}
+
+.github:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.instagram:hover {
+    box-shadow: 0 0 20px rgba(225, 48, 108, 0.6);
+}
+
+
+/* About Section Layout */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    flex-wrap: wrap;
+    padding: 182px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Image Side */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.glow-circle {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, #25d6ff, #7b5cff);
+    box-shadow: 0 0 40px rgba(123, 92, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glow-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #000;
+}
+
+/* Floating Dots (Optional) */
+.glow-circle::before,
+.glow-circle::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #7b5cff;
+    filter: blur(1px);
+}
+
+.glow-circle::before {
+    top: -10px;
+    right: 40px;
+}
+
+.glow-circle::after {
+    bottom: -10px;
+    left: 30px;
+}
+
+/* Content Side */
+.about-content {
+    flex: 1.2;
+}
+
+.about-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.about-content h2 span {
+    color: #b26cff;
+}
+
+.underline {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #b26cff, #6a5cff);
+    border-radius: 2px;
+    margin-bottom: 25px;
+}
+
+.about-content p {
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Stats Pills */
+.about-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.stat {
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: #0c0c1a;
+    border: 1px solid #1f1f3a;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.stat span {
+    color: #25d6ff;
+    font-weight: bold;
+}
+
+/* Skills Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+}
+
+.section-title span {
+    color: #b26cff;
+}
+
+.underline.center {
+    margin: 15px auto 50px;
+}
+
+/* Grid */
+
+.skills-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+/* Card */
+.skill-card {
+    background: #0c0c1a;
+    border: 1px solid #1f1f3a;
+    border-radius: 14px;
+    padding: 20px 22px;
+    transition: 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(106, 92, 255, 0.7);
+    box-shadow: 0 0 25px rgba(178, 108, 255, 0.25);
+}
+
+/* Header */
+.skill-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.skill-header i {
+    font-size: 1.4rem;
+    color: #6a5cff;
+}
+
+.skill-header span {
+    flex: 1;
+    color: #e6e6e6;
+}
+
+.skill-header small {
+    color: #aaa;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #11112a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #b26cff, #6a5cff);
+    transition: width 1.2s ease;
+}
+
+/* Optional: reduce motion users */
+
+
+@media (prefers-reduced-motion: reduce) {
+    .progress {
+        transition: none;
+    }
+
+    .skill-card {
+        transition: none;
+    }
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 750px;
+    margin: 15px auto 40px;
+    color: #a5a5c3;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.projects.section {
+    padding: 140px 0;
+}
+
+
+
+.projects-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+.project-card {
+    background: #0c0c1a;
+    border: 1px solid #1f1f3a;
+    border-radius: 16px;
+    padding: 22px;
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(106, 92, 255, 0.7);
+    box-shadow: 0 0 28px rgba(178, 108, 255, 0.25);
+}
+
+/* top row */
+.project-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.project-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.project-icon i {
+    font-size: 1.2rem;
+    color: #6a5cff;
+}
+
+.project-card h3 {
+    color: #eee;
+    font-size: 1.25rem;
+    margin: 8px 0 10px;
+}
+
+.project-card p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 0.98rem;
+}
+
+/* tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.project-tags span {
+    font-size: 0.8rem;
+    color: #cfcfe6;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #11112a;
+    border: 1px solid #1f1f3a;
+}
+
+/* buttons */
+.project-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.pbtn {
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-radius: 999px;
+    transition: 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pbtn.ghost {
+    color: #ddd;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pbtn.solid {
+    color: #fff;
+    background: linear-gradient(90deg, #b26cff, #6a5cff);
+    border: none;
+}
+
+.pbtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(178, 108, 255, 0.25);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Timeline Layout */
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 20px 60px;
+}
+
+/* Center Line */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: rgba(106, 92, 255, 0.35);
+    box-shadow: 0 0 22px rgba(178, 108, 255, 0.25);
+}
+
+/* Item base */
+.timeline-item {
+    width: 50%;
+    padding: 20px 24px;
+    position: relative;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+/* Dot */
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 44px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00d4ff;
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.45);
+}
+
+.timeline-item.left::after {
+    right: -8px;
+}
+
+.timeline-item.right::after {
+    left: -8px;
+}
+
+/* Card */
+.timeline-card {
+    background: rgba(12, 12, 26, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 18px;
+    padding: 22px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(178, 108, 255, 0.7);
+    box-shadow: 0 0 28px rgba(178, 108, 255, 0.18);
+}
+
+/* Text styling */
+.t-year {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00d4ff;
+    margin-bottom: 10px;
+}
+
+.t-title {
+    color: #eee;
+    font-size: 1.2rem;
+    margin: 0 0 6px;
+}
+
+.t-org {
+    color: #b26cff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+
+.t-desc {
+    color: #a5a5c3;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Tags */
+.t-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.t-tags span {
+    font-size: 0.8rem;
+    color: #cfcfe6;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #11112a;
+    border: 1px solid #1f1f3a;
+}
+
+/* Reveal Animations for timeline items */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide direction */
+.timeline-item[data-anim="left"] {
+    transform: translateX(-70px);
+}
+
+.timeline-item[data-anim="right"] {
+    transform: translateX(70px);
+}
+
+.timeline-item.show[data-anim="left"],
+.timeline-item.show[data-anim="right"] {
+    transform: translateX(0);
+}
+
+.timeline-line {
+    position: absolute;
+    top: 160px;
+    /* pehle 0 tha, ab neeche start hoga */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: rgba(106, 92, 255, 0.35);
+}
+
+
+/* Responsive: single column */
+@media (max-width: 900px) {
+    .timeline-line {
+        left: 16px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 30px;
+    }
+
+    .timeline-item::after {
+        left: 8px !important;
+        right: auto !important;
+    }
+}
+
+/* Contact Layout */
+#contact .section-title {
+    margin-top: 60px;
+    /* adjust 40 / 50 / 70 */
+}
+
+.contact-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 22px;
+    padding: 0 20px;
+}
+
+.contact-card {
+    background: rgba(12, 12, 26, 0.85);
+    border: 1px solid #1f1f3a;
+    border-radius: 18px;
+    padding: 22px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(106, 92, 255, 0.7);
+    box-shadow: 0 0 28px rgba(178, 108, 255, 0.18);
+}
+
+.contact-card h3 {
+    color: #eee;
+    margin-bottom: 16px;
+}
+
+/* Form */
+.contact-form .input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.input-group {
+    margin-bottom: 14px;
+}
+
+.input-group label {
+    display: block;
+    color: #bdbdd6;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid #1f1f3a;
+    background: #0c0c1a;
+    color: #eee;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: rgba(178, 108, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(178, 108, 255, 0.15);
+}
+
+.btn-full {
+    width: 100%;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-status {
+    margin-top: 10px;
+    color: #a5a5c3;
+    font-size: 0.9rem;
+}
+
+
+
+/* Info items */
+.contact-info {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.info-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid #1f1f3a;
+    background: #0c0c1a;
+}
+
+.info-item i {
+    color: #6a5cff;
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.info-item span {
+    display: block;
+    color: #bdbdd6;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+.info-item a,
+.info-item p {
+    color: #eee;
+    text-decoration: none;
+    margin: 0;
+}
+
+/* Social buttons (Scoped to Contact Section) */
+.contact-social {
+    display: grid;
+    gap: 12px;
+}
+
+.contact-social .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #eee;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: 0.25s ease;
+}
+
+.contact-social .social-btn i {
+    color: #b26cff;
+}
+
+.contact-social .social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(178, 108, 255, 0.22);
+    border-color: rgba(106, 92, 255, 0.7);
+}
+
+/* Small brand glow */
+.contact-social .social-btn.whatsapp:hover {
+    box-shadow: 0 0 22px rgba(37, 211, 102, 0.25);
+}
+
+.contact-social .social-btn.linkedin:hover {
+    box-shadow: 0 0 22px rgba(10, 102, 194, 0.25);
+}
+
+.contact-social .social-btn.github:hover {
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.18);
+}
+
+.contact-social .social-btn.instagram:hover {
+    box-shadow: 0 0 22px rgba(225, 48, 108, 0.25);
+}
+
+/* Slide-in Animations */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-90px);
+    transition: 0.9s ease;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(90px);
+    transition: 0.9s ease;
+}
+
+.reveal-left.active,
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form .input-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+.footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #070b1a;
+    margin-top: 110px;
+}
+
+.footer-text {
+    color: #cfcfe6;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-text .heart {
+    color: #6a5cff;
+    /* theme color */
+}
+
+.footer-text .name {
+    color: #b26cff;
+    /* highlight name */
+    font-weight: 600;
+}
+
+.copyright {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+
+/* ===========================
+   RESPONSIVE PACK (ADD AT END)
+   =========================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* 1) Navbar: wrap + smaller */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 12px 14px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* 2) Hero Responsive */
+@media (max-width: 900px) {
+    .hero {
+        margin-top: 210px;
+        /* was 300px */
+        padding: 0 16px;
+        /* FIX your padding (comma wala galat tha) */
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+        line-height: 1.25;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    button {
+        margin: 0;
+        /* remove spacing */
+    }
+}
+
+/* 3) Small Mobile */
+@media (max-width: 520px) {
+    .hero {
+        margin-top: 190px;
+    }
+
+    .hero h1 {
+        font-size: 1.85rem;
+    }
+
+    .social-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.05rem;
+    }
+}
+
+/* 4) About: 2 column -> 1 column */
+@media (max-width: 980px) {
+    .about-container {
+        padding: 120px 18px;
+        /* was 182px 60px */
+        gap: 40px;
+    }
+
+    .glow-circle {
+        width: 320px;
+        height: 320px;
+    }
+
+    .about-content h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* 5) Skills grid: cards full width on small */
+@media (max-width: 700px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+    }
+
+    .section-title {
+        font-size: 2.1rem;
+        padding: 0 10px;
+    }
+
+    .section-subtitle {
+        padding: 0 14px;
+        font-size: 1rem;
+    }
+}
+
+/* 6) Projects grid: 1 column on mobile */
+@media (max-width: 700px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+    }
+
+    .project-top {
+        gap: 10px;
+        flex-wrap: wrap;
+        /* buttons niche aa sakte */
+    }
+
+    .project-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* 7) Journey/Timeline already has responsive but add padding */
+@media (max-width: 900px) {
+    .timeline {
+        padding: 10px 10px 50px;
+    }
+}
+
+/* 8) Contact: form + info 1 column already but add padding */
+@media (max-width: 900px) {
+    .contact-grid {
+        padding: 0 16px;
+    }
+}
+
+/* 9) Footer spacing */
+@media (max-width: 600px) {
+    .footer {
+        padding: 45px 14px;
+        margin-top: 70px;
+    }
+
+    .footer-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* 10) Preloader text fix on small screens */
+@media (max-width: 520px) {
+    .pre-title {
+        font-size: 1.35rem;
+    }
+
+    .pre-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

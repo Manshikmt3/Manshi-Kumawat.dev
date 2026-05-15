@@ -1,4 +1,3 @@
-![Portfolio Preview](preview.png)
 
 # 🌐 Manshi-Kumawat.dev – Personal Portfolio Website
  💻 Manshi-Kumawat.dev is a modern, responsive personal portfolio website showcasing my projects, skills, and development journey. The platform highlights my expertise in frontend development, UI/UX design, and full-stack project building while providing an interactive way for recruiters and collaborators to explore my work.
